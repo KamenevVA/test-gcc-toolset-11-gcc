@@ -470,11 +470,7 @@ for the GNU standard C++ library.
 %package gfortran
 Summary: Fortran support for GCC 11
 Requires: %{?scl_prefix}gcc%{!?scl:11} = %{version}-%{release}
-#%if 0%{?rhel} > 7
-#Requires: libgfortran >= 8.1.1
-#%else
-#Requires: libgfortran5 >= 8.1.1
-#%endif
+
 %if %{build_libquadmath}
 %if 0%{!?scl:1}
 Requires: libquadmath
@@ -734,7 +730,7 @@ to NVidia PTX capable devices if available.
 %patch202 -p1 -b .tremont3~
 %patch203 -p1 -b .alderlake~
 
-%patch1000 -p0 -b .libstdc++-compat~
+#%patch1000 -p0 -b .libstdc++-compat~
 %ifarch %{ix86} x86_64
 %if 0%{?rhel} < 7
 # On i?86/x86_64 there are some incompatibilities in _Decimal* as well as
